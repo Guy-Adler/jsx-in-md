@@ -1,0 +1,44 @@
+{
+  "root": true,
+  "env": { "browser": true, "es2020": true },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "prettier",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "ignorePatterns": ["dist", ".eslintrc.cjs", "lib/isNode.ts"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["./tsconfig-build.json", "./tsconfig.json", "./tsconfig.node.json"]
+  },
+  "plugins": ["react-refresh", "jsx-a11y", "prettier"],
+  "rules": {
+    "react-refresh/only-export-components": [
+      "warn",
+      { "allowConstantExport": true }
+    ],
+    "prettier/prettier": "error",
+    "linebreak-style": ["error", "unix"],
+    "react/function-component-definition": [2, {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }],
+    "react/require-default-props": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": true,
+      "optionalDependencies": true,
+      "peerDependencies": true
+    }],
+    "no-param-reassign": ["error", { "props": false }]
+  }
+}

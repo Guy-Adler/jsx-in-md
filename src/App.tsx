@@ -1,10 +1,9 @@
 import initMd from '../lib/md';
 
 function App() {
-  const md = initMd();
+    const md = initMd();
 
-  return (
-  md`
+    return md`
   # jsx-in-md
 
   This package allows you to use react elements (and jsx in general) in you markdown.
@@ -35,7 +34,9 @@ function App() {
   return md\`
   # This will be rendered as a <h1>!
   
-  ## Inside this heading I will include a ${<button>Button!</button>}
+  ## Inside this heading I will include a ${(
+      <button type="button">Button!</button>
+  )}
   \`
   \`\`\`
   
@@ -93,7 +94,7 @@ function App() {
   
   ## Caveats
   - Make sure your markdown isn't too indented: It has to be on the same level as the begining of the statment (see examples in this file).
-  - If you want to use the string \`{{}}\`, make sure to escape it using a placeholder (\`\${${"{{}}"}}\`).
+  - If you want to use the string \`{{}}\`, make sure to escape it using a placeholder (\`\${${'{{}}'}}\`).
   - If you want to use the string \`\${}\`\, you can escape it using a backslash (\`\\\${}\`). This is just normal javascript templates.
 
   # Examples
@@ -107,8 +108,7 @@ function App() {
   - Footnotes
   - HTML
   - Frontmatter
-  `
-  );
+  `;
 }
 
-export default App
+export default App;
